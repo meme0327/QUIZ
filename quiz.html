@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body { background-image: url(https://img.rawpixel.com/s3fs-private/rawpixel_images/website_content/v1013-p-0009a_1-krxfulwe.jpg?w=800&dpr=1&fit=default&crop=default&q=65&vib=3&con=3&usm=15&bg=F4F4F3&ixlib=js-2.2.1&s=19eaa1b284bd38ab2d07b004d203fa80);
+           background-size:cover;
+       background-repeat: no-repeat;
+       }
+       h3{
+          font-size: 30px;
+          font-weight: bold;
+           color: cornsilk;
+           text-align: center;
+           background-color: darkorange;
+       }
+       #exam {
+           width:80%;
+           height:40%;
+           padding: 20px;
+           margin: 60px auto;
+           border: 4px solid cornsilk;
+           background-color:rgb(255, 248, 220,0.8);
+           box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+           font-weight: 500;
+       }
+       #exam button{
+        margin: 0px auto;
+        color: cornsilk;
+           width: 150px;
+           height: 50px;
+           background-color: darkorange;
+           border: none;
+           font-family: monospace;
+           font-weight: bold;
+           font-size: large;
+           box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+       }
+       
+       #exam button:hover{
+        border: 2px solid darkorange;
+       color: darkorange;
+           background-color: cornsilk;
+       }
+
+       #examresult{
+            padding: 20px;
+            border: 1px solid gray;
+            width: 60%;
+            margin: auto;
+            margin-top: 50px;
+            display: none;
+            border: 4px solid cornsilk;
+           background-color:rgb(255, 248, 220,0.8);
+           box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+           font-weight: 500;
+        }
+
+        #time{
+         background-color:darkorange;
+         color:cornsilk;
+         font-size:20px;
+         text-align:center;
+         font-size: 30px;
+         margin-bottom: 15px;
+        }
+    </style>
+</head>
+<body>
+    <h3>HTML and CSS mcq</h3>
+    <div id="exam">
+    <div id="time" >Time lift= <span id="timer"></span>
+    </div>
+
+        <div id="quiz">
+
+        </div>
+        <button onclick="getresult()">result</button>
+
+    </div>
+    <div id="examresult">
+
+    </div>
+    
+
+    <script>
+       document.getElementById('timer').innerHTML =
+       03 + ":" + 00;
+      startTimer();
+
+     function startTimer() 
+     {
+      var presentTime = document.getElementById('timer').innerHTML;
+      var timeArray = presentTime.split(/[:]+/);
+      var m = timeArray[0];
+      var s = checkSecond((timeArray[1] - 1));
+      if(s==59){m=m-1}
+      if(m<0)
+      {
+       return
+      }
+  
+        document.getElementById('timer').innerHTML =
+        m + ":" + s;
+      console.log(m)
+     setTimeout(startTimer, 1000);
+  
+    }
+
+      function checkSecond(sec) {
+       if (sec < 10 && sec >= 0) {sec = "0" + sec}; // add zero in front of numbers < 10
+       if (sec < 0) {sec = "59"};
+      return sec;
+      }
+
+        //quiz exam 
+        function Question(qnum,qtitle,qop1,qop2,qop3,qanswer)
+        {
+                this.qnum=qnum;
+                this.qtitle=qtitle;
+                this.qop1=qop1;
+                this.qop2=qop2;
+                this.qop3=qop3;
+                this.qanswer=qanswer;
+        }
+
+      var q1=new Question("q1"," What does the abbreviation HTML stand for?","HyperText Markup Language.","programming language","hightext markup language","HyperText Markup Language.");
+      var q2=new Question("q2","How many sizes of headers are available in HTML by default?","3","4","6","6");
+      var q3=new Question("q3"," What is the smallest header in HTML by default?","h1","h6","h3","h6");
+      var q4=new Question("q4"," How to create an ordered list in HTML?","ul","br","ol","");
+      var q5=new Question("q5"," HTML files are saved by default with the extension?",".html",".h",".ht",".html");
+      var q6=new Question("q6"," What is the effect of the b tag for?","is used to cereat list","is used to convert the text within it to bold font.","is used to add line","is used to convert the text within it to bold font.");
+      var q7=new Question("q7"," Which of the following is correct about HTML?","use the tags defined within the language.","use the tags user defined","Both A and B","use the tags defined within the language.");
+      var q8=new Question("q8"," Which of the following tags doesn’t require a closing tag?","hr","br","Both","Both");
+      var q9=new Question("q9"," What are the attributes used to change the size of an image?","Width and Height","Top and bottom","none","Width and Height");
+      var q10=new Question("q10"," Which attribute is used to provide a unique name to an HTML element?","id","class","type","id");
+      var q11=new Question("q11","Which of the following properties is used to change the font of text?"," font-family"," font-size","text align"," font-family");
+      var q12=new Question("q12"," What tag is used to render an image on a webpage?","src","img","fram","img");
+      var q13=new Question("q13"," Colors are defined in HTML using?","RGB","HEX","BOTH","BOTH");
+      var q14=new Question("q14"," Which property is used to set border colors in CSS?","border-color","border","hr","border");
+      var q15=new Question("q15"," What does the Alpha value in RGBA represent?","shade of the color","Opacity of a color","NONE","Opacity of a color");
+
+
+        var quiz=document.getElementById("quiz");
+
+        var questionsarr=[q1,q2,q3,q4,q5,q6,q7,q8,q9,q10,q11,q12,q13,q14,q15];
+        var rondarrq=[];   
+        function getRndInteger(min, max) {
+            return Math.floor(Math.random() * (max - min + 1) ) + min;
+        }
+     
+        var i=1;
+        while(i<=5)
+        {
+            var rondoqqindex=getRndInteger(0,14);
+            var rondomquestion=questionsarr[rondoqqindex];
+            if(rondarrq.indexOf(rondomquestion) !== -1)  
+            {  
+                break;
+            }   
+            rondarrq.push(rondomquestion);
+
+
+            i++;
+        }
+
+        for(question of rondarrq)
+        {
+          quiz.innerHTML+= question.qtitle+"<br>";
+          quiz.innerHTML+= `<input type="radio" name="${question.qnum}" value="${question.qop1}" >`+question.qop1+"<br>";
+          quiz.innerHTML+= `<input type="radio" name="${question.qnum}" value="${question.qop2}" >`+question.qop2+"<br>";
+          quiz.innerHTML+= `<input type="radio" name="${question.qnum}" value="${question.qop3}" >`+question.qop3+"<br>";
+          quiz.innerHTML+="<br>";
+
+        }
+
+
+        function getresult()
+        {
+            var truequestions=0;
+            var falsequestions=0;
+            var result=0;
+
+            for(question of rondarrq)
+            {
+
+               var questionoptions= document.getElementsByName(question.qnum);
+               for(option of questionoptions)
+               {
+                if(option.checked)
+                {
+                   if(option.value==question.qanswer)
+                   {
+                    truequestions+=1;
+
+                   }
+                   else{
+                    falsequestions+=1;
+                   }
+                }
+
+               }
+
+
+            }
+            //console.log(truequestions);
+            //console.log(falsequestions);
+
+            result=truequestions/rondarrq.length*100;
+            document.getElementById('exam').style.display="none";
+            document.getElementById("examresult").style.display="block";
+
+            if(result>=50)
+            {
+                document.getElementById("examresult").innerHTML="Congratulation , your score = "+result+" % ";
+
+                document.getElementById("examresult").style.borderColor="green";
+                document.getElementById("examresult").style.color="green";
+
+            }
+            else{
+                document.getElementById("examresult").innerHTML="Sorry Failed, your score = "+result+" % ";
+                document.getElementById("examresult").style.borderColor="red";
+                document.getElementById("examresult").style.color="red";
+
+
+            }
+
+
+        }
+
+
+
+
+        
+
+
+
+    </script>
+</body>
+</html>
